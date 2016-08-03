@@ -29,7 +29,7 @@ install_if_needed fonts-hack-ttf   # for powerline fonts
 # remake the vim config directory if needed
 [ -d ${VIM_CONF_DIR} ] ||  mkdir ${VIM_CONF_DIR}
 
-# download Vundle is it's not already there
+# download Vundle if it's not already there
 VUNDLE_PATH=${VIM_CONF_DIR}/bundle/Vundle.vim
 [ -d ${VUNDLE_PATH} ] || \
     git clone https://github.com/VundleVim/Vundle.vim.git ${VUNDLE_PATH}
