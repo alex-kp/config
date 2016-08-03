@@ -6,6 +6,9 @@ VIM_CONF_DIR=~/.vim
 source functions.sh
 
 # Prerequisites
+#install_if_needed gvim-athena      # minimal dependencies
+#install_if_needed gvim-gtk         # no gnome dependencies
+install_if_needed gvim-gnome       # with gnome dependencies
 install_if_needed build-essential
 install_if_needed cmake
 install_if_needed python-dev
@@ -39,7 +42,4 @@ popd
 
 # next install default autocompletion file
 cp ycm_extra_conf.py ${VIM_CONF_DIR}
-
-# then set up airline
-
 
