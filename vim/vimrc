@@ -10,10 +10,23 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" vim-fugitive gives git integration
 Plugin 'tpope/vim-fugitive'
 
+" YouCompleteMe (YCM) is an autocompletion engine
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+" Location of the default YCM config file
+let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+
+" vim-airline provides a status/tabline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Integrate with powerline fonts
+let g:airline_powerline_fonts = 1
+
+" see https://github.com/vim-airline/vim-airline/issues/130
+set laststatus=2
+set ttimeoutlen=50
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,7 +43,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-set t_Co=256            " set 256 color
 set mouse=a             " make sure mouse is used in all cases.
 set shortmess+=I        " disable the welcome screen
 set complete+=k         " enable dictionary completion
@@ -41,6 +53,41 @@ set ruler               " ruler display in status line
 set showmatch           " show matching brackets (),{},[]
 set mat=5               " show matching brackets for 0.5 seconds
 colorscheme desert
-:set guioptions-=m      "remove menu bar
-:set guioptions-=T      "remove toolbar
+set guioptions-=m      "remove menu bar
+set guioptions-=T      "remove toolbar
+
+" tabs and indenting
+set expandtab           " insert spaces instead of tab chars
+set tabstop=4           " a n-space tab width
+set shiftwidth=4        " allows the use of < and > for VISUAL indenting
+set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
+set autoindent          " auto indents next new line
+
+" backup settings
+set backup              " keep a backup file
+set backupdir=/tmp      " backup dir
+set directory=/tmp      " swap file directory
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GUI related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set font according to system
+if has("mac") || has("macunix")
+    set gfn=Hack:h9,Menlo:h9
+elseif has("win16") || has("win32")
+    set gfn=Hack:h9,Bitstream\ Vera\ Sans\ Mono:h9
+elseif has("gui_gtk2")
+    set gfn=Hack\ 9,Bitstream\ Vera\ Sans\ Mono\ 9
+elseif has("linux")
+    set gfn=Hack\ 9,Bitstream\ Vera\ Sans\ Mono\ 9
+elseif has("unix")
+    set gfn=Monospace\ 9
+endif
+
+" Set the window size if appropriate
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=55 columns=100
+endif
 

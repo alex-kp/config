@@ -1,7 +1,8 @@
-#!/bin/bash -e
+#!/bin/bash
 
 VIM_CONF_DIR=~/.vim
 
+# This gives the install_if_needed utility function
 source functions.sh
 
 # Prerequisites
@@ -9,6 +10,7 @@ install_if_needed build-essential
 install_if_needed cmake
 install_if_needed python-dev
 install_if_needed python3-dev
+install_if_needed fonts-hack-ttf   # for powerline fonts
 
 # this will nuke the current config
 # be careful!
@@ -36,5 +38,8 @@ cd ~/.vim/bundle/YouCompleteMe
 popd
 
 # next install default autocompletion file
+cp ycm_extra_conf.py ${VIM_CONF_DIR}
 
 # then set up airline
+
+
