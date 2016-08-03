@@ -1,14 +1,21 @@
 #!/bin/bash
 
+# set the directory where all the vim config files go
 VIM_CONF_DIR=~/.vim
 
+# get the directory in which this script is stored
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# go to the directory containing this script
+cd ${DIR}
+
 # This gives the install_if_needed utility function
-source functions.sh
+source ../meta/functions.sh
 
 # Prerequisites
-#install_if_needed gvim-athena      # minimal dependencies
-#install_if_needed gvim-gtk         # no gnome dependencies
-install_if_needed gvim-gnome       # with gnome dependencies
+#install_if_needed vim-athena       # minimal dependencies
+install_if_needed vim-gtk          # no gnome dependencies
+#install_if_needed vim-gnome        # with gnome dependencies
 install_if_needed build-essential
 install_if_needed cmake
 install_if_needed python-dev
