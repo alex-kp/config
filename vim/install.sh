@@ -10,7 +10,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${DIR}
 
 # This gives the install_if_needed utility function
-source ../meta/functions.sh
+source ../util/functions.sh
 
 # Prerequisites
 #install_if_needed vim-athena       # minimal dependencies
