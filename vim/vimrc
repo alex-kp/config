@@ -104,3 +104,5 @@ if has("gui_running")
   set lines=55 columns=100
 endif
 
+" Run python script by pressing <F5>
+autocmd FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
