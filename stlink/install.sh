@@ -10,8 +10,8 @@ source ../util/functions.sh
 # Prerequisites
 install_if_needed "build-essential"
 install_if_needed "cmake"
-install_if_needed "libusb-1.0"
-install_if_needed "libusb-1.0.0-dev"
+install_if_needed "libusb-1.0-0"
+install_if_needed "libusb-1.0-0-dev"
 install_if_needed "libgtk-3-dev"
 
 git clone https://github.com/texane/stlink.git
