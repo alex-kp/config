@@ -2,6 +2,8 @@
 
 # set the directory where all the vim config files go
 VIM_CONF_DIR=~/.vim
+POWERLINE_FONTS_REPO=https://github.com/powerline/fonts.git
+POWERLINE_FONTS_DIR=~/.local/share/fonts
 
 # get the directory in which this script is stored
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -20,7 +22,14 @@ install_if_needed build-essential
 install_if_needed cmake
 install_if_needed python-dev
 install_if_needed python3-dev
-install_if_needed fonts-hack-ttf   # for powerline fonts
+
+if [ ! -d "${POWERLINE_FONTS_DIR}" ]; then
+    [ -d "fonts" ] || git clone ${POWERLINE_FONTS_REPO}
+    cd fonts
+    ./install.sh
+    cd ..
+    echo "installed powerline fonts"
+fi
 
 # this will nuke the current config
 # be careful!
